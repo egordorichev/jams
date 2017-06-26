@@ -27,9 +27,17 @@ function IsoMap:init(t, w, h, tiles)
 
 	for y = 1, self.image:getHeight() / self.th, 1 do
 		for x = 1, self.image:getWidth() / self.tw, 1 do
-			self.quads[x + (y - 1) * self.th] = love.graphics.newQuad(x * self.tw, y * self.th, self.tw, self.th, self.image:getWidth(), self.image:getHeight())
+			self.quads[x + (y - 1) * self.th] = love.graphics.newQuad((x - 1) * self.tw, (y - 1) * self.th, self.tw, self.th, self.image:getWidth(), self.image:getHeight())
 		end
 	end
+end
+
+function IsoMap:load(file)
+	-- todo
+end
+
+function IsoMap:save(file)
+
 end
 
 function IsoMap:getTile(x, y)
@@ -42,8 +50,9 @@ end
 
 function IsoMap:draw()
 	love.graphics.draw(self.image, self.quads[1], 10, 10)
-	love.graphics.draw(self.image, self.quads[1], 42, 10)
-	love.graphics.draw(self.image, self.quads[1], 26, 18)
+	love.graphics.draw(self.image, self.quads[3], 26, 18 - 16)
+	love.graphics.draw(self.image, self.quads[2], 42, 10)
+	love.graphics.draw(self.image, self.quads[2], 42 + 16, 18)
 end
 
 function IsoMap:update(dt)
