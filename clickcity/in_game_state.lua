@@ -5,7 +5,7 @@ function InGameState:init()
 	self.name = "in game"
 
 	map = IsoMap()
-	map:init(32, 32, 32, "data/images/tiles.png")
+	map:init(32, 5, 5, "data/images/tiles.png")
 
 	self.scene:add(map)
 end

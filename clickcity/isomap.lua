@@ -5,11 +5,11 @@ function IsoMap:new()
 end
 
 function IsoMap:init(t, w, h, tiles)
-	self.tileSize = t
+	self.t = t
 	self.tw = w
 	self.th = h
-	self.w = w * self.tileSize
-	self.h = h * self.tileSize
+	self.w = w * self.t
+	self.h = h * self.t
 	self:loadImage(tiles)
 
 	self.tiles = {}
@@ -19,17 +19,24 @@ function IsoMap:init(t, w, h, tiles)
 
 	for y = 1, self.th, 1 do
 		for x = 1, self.tw, 1 do
-			self:setTile(1, x, y)
+			self:setTile(9, x, y)
 		end
 	end
 
 	self.quads = {}
+	self.tr = self.image:getWidth() / self.t
 
-	for y = 1, self.image:getHeight() / self.th, 1 do
-		for x = 1, self.image:getWidth() / self.tw, 1 do
-			self.quads[x + (y - 1) * self.th] = love.graphics.newQuad((x - 1) * self.tw, (y - 1) * self.th, self.tw, self.th, self.image:getWidth(), self.image:getHeight())
+		for x = 1, self.image:getWidth() / self.t, 1 do
+			for y = 1, self.image:getHeight() / self.t, 1 do
+			self.quads[x + (y - 1) * self.tr] = love.graphics.newQuad((x - 1) * self.t, (y - 1) * self.t, self.t, self.t, self.image:getWidth(), self.image:getHeight())
 		end
 	end
+
+	-- DEBUG!
+
+	self:setTile(1, 1, 1)
+	self:setTile(1, 2, 1)
+	self:setTile(1, 1, 2)
 end
 
 function IsoMap:load(file)
@@ -49,10 +56,22 @@ function IsoMap:setTile(t, x, y)
 end
 
 function IsoMap:draw()
-	love.graphics.draw(self.image, self.quads[1], 10, 10)
-	love.graphics.draw(self.image, self.quads[3], 26, 18 - 16)
-	love.graphics.draw(self.image, self.quads[2], 42, 10)
-	love.graphics.draw(self.image, self.quads[2], 42 + 16, 18)
+	local x
+	local y
+
+	for y = 1, self.th, 1 do
+		for x = 1, self.tw, 1 do
+			local t = self:getTile(x, y)
+
+			if y % 2 == 1 then
+				love.graphics.draw(self.image, self.quads[t],
+					(x - 1) * self.t, (y - 1) * self.t - (y) * self.t / 4 * 3 + 24) -- FIXME! magic numbers!
+			else
+				love.graphics.draw(self.image, self.quads[t],
+					(x - 1) * self.t + self.t / 2, (y - 1) * self.t - self.t / 4 * 3 - (y) * self.t / 4 * 3 + 48)
+			end
+		end
+	end
 end
 
 function IsoMap:update(dt)
