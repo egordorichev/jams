@@ -13,7 +13,7 @@ function Game:new()
 	self.shakeTimer = 0
 	self.flashTimer = 0
 	self.flashColor = nil
-	self.backgroundColor = { 95, 87, 79 }
+	self.backgroundColor = { 255, 204, 170 }
 	self.drawCalls = 0
 
 	canvas = love.graphics.newCanvas(WIDTH, HEIGHT)
@@ -26,9 +26,6 @@ function Game:init(state)
 	if DEBUG then
 		Debug.init()
 	end
-
-	self.levels = require "data.levels"
-	self.level = self.levels["tutorial"]
 end
 
 function Game:save()

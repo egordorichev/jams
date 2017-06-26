@@ -1,6 +1,6 @@
 RELEASE = (arg[2] == nil)
 DEBUG = not RELEASE
-SCALE = 3
+SCALE = 2
 SCREEN_WIDTH = love.graphics.getWidth()
 SCREEN_HEIGHT = love.graphics.getHeight()
 WIDTH = love.graphics.getWidth() / SCALE
@@ -38,7 +38,7 @@ function love.load()
 	UI.init()
 	love.graphics.setDefaultFilter("nearest", "nearest")
 
-	font = love.graphics.newImageFont("data/fonts/font.png", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!?[](){}.,;:<>+=%#^*~/\\|$@&`"\'-_ ', 1)
+	font = love.graphics.newImageFont("data/fonts/font.png", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!?[](){}.,;:<>+=%#^*~/\\|$@&`"\'-_ ', 0)
 	love.graphics.setFont(font)
 
 	-- music = love.audio.newSource("data/music/main.mp3")

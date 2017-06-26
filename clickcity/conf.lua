@@ -1,25 +1,25 @@
 function love.conf(t)
 	t.releases = {
-		title = "tiny tanks",
-		package = "tinytanks",
+		title = "click city",
+		package = "clickcity",
 		loveVersion = "0.10.2",
 		version = "0.1",
 		author = "Egor Dorichev",
 		email = "egordorichev@gmail.com",
-		description = "Small game for #remake jam",
+		description = "Build your city",
 		homepage = nil,
-		identifier = "tinytanks ",
+		identifier = "clickcity",
 		excludeFileList = {},
 		releaseDirectory = nil
 	}
 
-	t.identity = "tinytanks"
+	t.identity = "clickcity"
 	t.version = "0.10.2"
 
-	t.window.title = "tiny tanks - @egordorichev"
+	t.window.title = "click city - @egordorichev"
 	t.window.icon = "data/images/icon.png"
-	t.window.width = 480
+	t.window.width = 640
 	t.window.height = 480
 	t.window.resizable = false
-	t.modules.joystick = true 
+	t.modules.joystick = true
 end
