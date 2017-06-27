@@ -1,6 +1,6 @@
 function love.conf(t)
 	t.releases = {
-		title = "tiny tanks",
+		title = "tinytanks",
 		package = "tinytanks",
 		loveVersion = "0.10.2",
 		version = "0.1",
@@ -8,7 +8,7 @@ function love.conf(t)
 		email = "egordorichev@gmail.com",
 		description = "Small game for #remake jam",
 		homepage = nil,
-		identifier = "tinytanks ",
+		identifier = "tinytanks",
 		excludeFileList = {},
 		releaseDirectory = nil
 	}
