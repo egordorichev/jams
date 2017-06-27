@@ -1,4 +1,4 @@
-RELEASE = (arg[2] == nil)
+RELEASE = (arg[2] ~= "-debug")
 DEBUG = not RELEASE
 SCALE = 3
 SCREEN_WIDTH = love.graphics.getWidth()
