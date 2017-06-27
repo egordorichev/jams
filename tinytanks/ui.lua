@@ -53,7 +53,7 @@ function UI.button(label, x, y, w, h)
 		UI.area(0, x, y, w, h)
 	end
 
-	Util.drawTextWithStroke(label, x + (w - font:getWidth(label) - 3) / 2, y + (h - 7) / 2)
+	Util.drawTextWithStroke(label, x + (w - font:getWidth(label) - 3) / 2, y + (h - 9) / 2)
 
 	return down
 end
@@ -92,7 +92,7 @@ function UI.healthBar(x, y, w, h, val, max, sec)
 
 	local label = lume.round(val) .. "/" .. max
 
-	Util.drawTextWithStroke(label, x + (w - font:getWidth(label) - 3) / 2, y + (h - 4) / 2)
+	Util.drawTextWithStroke(label, x + (w - font:getWidth(label) - 3) / 2, y + (h - 6) / 2)
 end
 
 function UI.select(variants, current, x, y, w, h, l)

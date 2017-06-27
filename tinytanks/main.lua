@@ -46,7 +46,8 @@ function love.load()
 	UI.init()
 	love.graphics.setDefaultFilter("nearest", "nearest")
 
-	font = love.graphics.newImageFont("data/fonts/font.png", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!?[](){}.,;:<>+=%#^*~/\\|$@&`"\'-_ ', 1)
+	font = love.graphics.newFont("data/fonts/default.ttf", 8)
+	font:setFilter("nearest")
 	love.graphics.setFont(font)
 
 	music = love.audio.newSource("data/music/main.mp3")
